@@ -1,0 +1,35 @@
+#results {
+    min-height: 32rem;
+}
+
+#get-box {
+    height: 15rem;
+    background-color: rgb(189, 215, 255);
+}
+
+#post-box {
+    height: 15rem;
+    background-color: rgb(217, 255, 208);
+}
+
+#put-box {
+    height: 15rem;
+    background-color: rgb(255, 238, 200);
+}
+
+#delete-box {
+    height: 15rem;
+    background-color: rgb(255, 210, 210);
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+main {
+    min-height: calc(100vh - 210px);
+  }
