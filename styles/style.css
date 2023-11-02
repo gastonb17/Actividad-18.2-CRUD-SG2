@@ -30,6 +30,11 @@
     transform: translate(-50%, 0);
 }
 
+li {
+    list-style: none
+    ;
+}
+
 main {
     min-height: calc(100vh - 210px);
   }

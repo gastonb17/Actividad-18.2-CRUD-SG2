@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="border p-3 my-3 position-relative" id="post-box">
+                        <div class="border p-3 my-3 position-relative box" id="post-box">
                             <h6>Ingresar nuevo registro</h6>
                             <input type="text" id="inputPostNombre" class="form-control my-1" placeholder="Nombre">
                             <input type="text" id="inputPostApellido" class="form-control my-1" placeholder="Apellido">
@@ -39,16 +39,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="border p-3 my-3 position-relative" id="put-box">
+                        <div class="border p-3 my-3 position-relative box" id="put-box">
                             <h6>Modificar registro</h6>
                             <input type="number" id="inputPutId" class="form-control"
                                 placeholder="ID del registro a modificar">
-                            <button id="btnPut" class="btn btn-warning position-absolute bottom-0 mb-3" disabled>
+                            <button id="btnPut" data-bs-toggle="modal" data-bs-target="#dataModal" class="btn btn-warning position-absolute bottom-0 mb-3" disabled>
                                 Modificar</button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="border p-3 my-3 position-relative" id="delete-box">
+                        <div class="border p-3 my-3 position-relative box" id="delete-box">
                             <h6>Eliminar registro</h6>
                             <input type="number" id="inputDelete" class="form-control" placeholder="ID a eliminar">
                             <button id="btnDelete" class="btn btn-danger position-absolute bottom-0 mb-3" disabled>
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <ul class="border bg-dark text-white my-3 list-group list-group-flush" id="results"></ul>
+                <ul class="border bg-dark text-white my-3 px-2 py-1 list-group list-group-flush" id="results"></ul>
             </div>
         </div>
     </main>
@@ -81,12 +81,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnSendChanges" disabled>Guardar</button>
+                    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" id="btnSendChanges" disabled>Guardar</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="scripts/bootstrap.bundle.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
