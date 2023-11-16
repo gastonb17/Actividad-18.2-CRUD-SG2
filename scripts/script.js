@@ -25,7 +25,7 @@ function addInputEvLis(boxId, btnId) {
 
 
 function getData() {
-    
+
     fetch(API_URL).then((response) => response.json()).then((data) => {
         let content = ``;
         for (let i = 0; i < data.length; i++) {
@@ -44,12 +44,21 @@ function getData() {
         results.innerHTML = content;
         return data
     })
-    
+
 }
 
 function getUser(id) {
     fetch(`${API_URL}/${id}`).then((response) => response.json()).then((data) => {
-        content = `<li> <div class="name">
+        if (!data.id) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Registro Inválido!",
+                confirmButtonColor: "#dc3545"
+            });
+        }
+        else {
+            content = `<li> <div class="name">
        ${data.name}
        </div>
        <div class="lastName">
@@ -59,9 +68,11 @@ function getUser(id) {
        ${data.id}
        </div>
        </li>`
-        results.innerHTML = content;
+            results.innerHTML = content;
+            return data
+        }
     })
-    return data
+
 }
 
 function insertUser() {
@@ -71,11 +82,11 @@ function insertUser() {
         method: 'POST',
         body: JSON.stringify({
             name: document.getElementById('inputPostNombre').value,
-            lastname: document.getElementById('inputPostApellido').value            
+            lastname: document.getElementById('inputPostApellido').value
         })
     }).then(getData)
-    
-   
+
+
 };
 
 function updateUser(id) {
@@ -95,7 +106,7 @@ function updateUser(id) {
 function deleteUser(id) {
     fetch(API_URL + '/' + id, {
         method: 'DELETE'
-    }).then(getData)        
+    }).then(getData)
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -115,18 +126,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     btnGet.addEventListener('click', () => {
         if (inputGet.value) {
-            getUser(inputGet.value)
+            getUser(inputGet.value);
         }
         else {
             getData()
         }
     });
 
-    btnPost.addEventListener('click', ()=>{
+    btnPost.addEventListener('click', () => {
         insertUser()
     });
 
-    btnDelete.addEventListener('click',() => {
+    btnDelete.addEventListener('click', () => {
         deleteUser(document.getElementById('inputDelete').value)
     });
 
